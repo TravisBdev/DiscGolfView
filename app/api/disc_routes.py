@@ -1,9 +1,10 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import Disc, Review, User
+from app.models import Disc, Review, User, db
 from ..forms import DiscForm
 from .auth_routes import validation_errors_to_error_messages
 from .aws_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
+from datetime import date
 
 disc_routes = Blueprint('discs', __name__)
 
@@ -15,18 +16,6 @@ def get_all_discs():
     """
     discs = Disc.query.all()
     return jsonify({'Discs': [disc.to_dict() for disc in discs]})
-
-
-@disc_routes.route('<int:id>')
-@login_required
-def get_one_disc(id):
-    """
-    Query for a specific disc and returns it as a disc dictionary
-    """
-    disc = Disc.query.get(id)
-    if disc:
-        return jsonify(disc.to_dict())
-    return jsonify({'errors': 'Disc not found'})
 
 
 @disc_routes.route('/current')
@@ -41,11 +30,48 @@ def current_user_discs():
     return jsonify({'errors': 'Unable to fetch discs'})
 
 
-@disc_routes.route('/new', methods=['GET', 'POST'])
+@disc_routes.route('/new', methods=['GET','POST'])
 def create_new_disc():
     """
     Creates a new user disc
     """
-    form = DiscForm
+    form = DiscForm()
 
     form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        photo_url = form.data['photo_url']
+        photo_url.filename = get_unique_filename(photo_url.filename)
+        upload = upload_file_to_s3(photo_url)
+
+        if 'url' not in upload:
+            return jsonify({'errors': [upload]})
+
+        new_disc = Disc(
+            owner_id = current_user.id,
+            name = form.data['name'],
+            category = form.data['category'],
+            speed = form.data['speed'],
+            glide = form.data['glide'],
+            turn = form.data['turn'],
+            fade = form.data['fade'],
+            photo_url = upload['url'],
+            created_at = date.today()
+        )
+        db.session.add(new_disc)
+        db.session.commit()
+        return jsonify(new_disc.to_dict())
+    else:
+        return jsonify({'errors': validation_errors_to_error_messages(form.errors)}), 400
+
+
+@disc_routes.route('<int:id>')
+@login_required
+def get_one_disc(id):
+    """
+    Query for a specific disc and returns it as a disc dictionary
+    """
+    disc = Disc.query.get(id)
+    if disc:
+        return jsonify(disc.to_dict())
+    return jsonify({'errors': 'Disc not found'})
