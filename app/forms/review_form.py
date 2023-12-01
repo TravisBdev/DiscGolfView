@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField, TextAreaField, SelectField, BooleanField
+from wtforms import SubmitField, IntegerField, TextAreaField
 from wtforms.validators import DataRequired, ValidationError
 
 
@@ -13,3 +13,4 @@ def check_limit(form, field):
 class ReviewForm(FlaskForm):
     review = TextAreaField('Review', validators=[DataRequired()])
     rating = IntegerField('Rating', validators=[DataRequired()])
+    submit = SubmitField('Submit')
