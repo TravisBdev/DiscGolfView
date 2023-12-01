@@ -32,13 +32,13 @@ def seed_discs():
 
   new_disc_3 = Disc(
     owner_id=1,
-    name='Destroyer',
-    category='Driver',
-    speed=2,
-    glide=3,
+    name='Birdie',
+    category='Putt & Approach',
+    speed=1,
+    glide=2,
     turn=0,
-    fade=1,
-    photo_url='https://m.media-amazon.com/images/I/71KXnEsHLwL._AC_UF1000,1000_QL80_.jpg',
+    fade=0,
+    photo_url='https://www.innovadiscs.com/wp-content/uploads/2015/02/DX-Birdie.jpg',
     created_at=date.today()
   )
   db.session.add(new_disc_3)
