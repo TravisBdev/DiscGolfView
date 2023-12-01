@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import Disc, Review, User, db
-from ..forms import DiscForm
+from ..forms import DiscForm, UpdateDiscForm
 from .auth_routes import validation_errors_to_error_messages
 from .aws_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
 from datetime import date
@@ -65,6 +65,46 @@ def create_new_disc():
         return jsonify({'errors': validation_errors_to_error_messages(form.errors)}), 400
 
 
+@disc_routes.route('/update/<int:id>', methods=['PUT'])
+@login_required
+def update_disc(id):
+    """
+    Updates a user disc
+    """
+    form = UpdateDiscForm()
+
+    form['csrf_token'].data = request.cookies['csrf_token']
+    
+    if form.validate_on_submit():
+        update_disc = Disc.query.get(id)
+        
+        if 'photo_url' in request.files and request.files['photo_url']:
+            photo_url = request.files['photo_url']
+            photo_url.filename = get_unique_filename(photo_url.filename)
+            upload = upload_file_to_s3(photo_url)
+
+            if 'url' not in upload:
+                return jsonify({'errors': [upload]})
+
+            
+            update_disc.photo_url = upload['url']
+
+        
+        update_disc.name = form.data['name']
+        update_disc.category = form.data['category']
+        update_disc.speed = form.data['speed']
+        update_disc.glide = form.data['glide']
+        update_disc.turn = form.data['turn']
+        update_disc.fade = form.data['fade']
+
+        db.session.commit()
+        return jsonify(update_disc.to_dict())
+    else:
+        return jsonify({'errors': validation_errors_to_error_messages(form.errors)}), 400
+
+
+
+
 @disc_routes.route('<int:id>')
 @login_required
 def get_one_disc(id):
@@ -75,3 +115,21 @@ def get_one_disc(id):
     if disc:
         return jsonify(disc.to_dict())
     return jsonify({'errors': 'Disc not found'})
+
+
+@disc_routes.route('<int:id>', methods=['DELETE'])
+@login_required
+def delete_disc(id):
+    """
+    Deletes a disc
+    """
+    disc = Disc.query.get(id)
+    file_to__remove = remove_file_from_s3(disc.photo_url)
+
+    if file_to__remove:
+        db.session.delete(disc)
+        db.session.commit()
+        return jsonify({'message': 'Successfully deleted'})
+    else:
+        return jsonify({'error': 'Could not locate disc'})
+    

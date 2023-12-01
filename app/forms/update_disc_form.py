@@ -10,7 +10,7 @@ def check_flight_numbers(form, field):
         raise ValidationError('Flight numbers must be between -8 and 15')
 
 
-class DiscForm(FlaskForm):
+class UpdateDiscForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
     category = SelectField('Category', choices=[
         'Distance Driver', 'Fairway Driver', 'Midrange', 'Putter'], validators=[DataRequired()])
@@ -18,5 +18,5 @@ class DiscForm(FlaskForm):
     glide = IntegerField('Glide', validators=[DataRequired(), check_flight_numbers])
     turn = IntegerField('Turn', validators=[DataRequired(), check_flight_numbers])
     fade = IntegerField('Fade', validators=[DataRequired(), check_flight_numbers])
-    photo_url = FileField('Upload Image', validators=[FileRequired(),FileAllowed(list(ALLOWED_EXTENSIONS))])
+    photo_url = FileField('Upload Image', validators=[FileAllowed(list(ALLOWED_EXTENSIONS))])
     submit = SubmitField('Submit')
