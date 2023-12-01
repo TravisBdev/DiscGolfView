@@ -14,8 +14,8 @@ class DiscForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
     category = SelectField('Category', choices=[
         'Distance Driver', 'Fairway Driver', 'Midrange', 'Putter'], validators=[DataRequired()])
-    speed = IntegerField('Speed', validators=[DataRequired()])
-    glide = IntegerField('Glide', validators=[DataRequired()])
-    turn = IntegerField('Turn', validators=[DataRequired()])
-    fade = IntegerField('Fade', validators=[DataRequired()])
+    speed = IntegerField('Speed', validators=[DataRequired(), check_flight_numbers])
+    glide = IntegerField('Glide', validators=[DataRequired(), check_flight_numbers])
+    turn = IntegerField('Turn', validators=[DataRequired(), check_flight_numbers])
+    fade = IntegerField('Fade', validators=[DataRequired(), check_flight_numbers])
     photo_url = FileField('Upload Image', validators=[FileRequired(), FileAllowed(list(ALLOWED_EXTENSIONS))])
