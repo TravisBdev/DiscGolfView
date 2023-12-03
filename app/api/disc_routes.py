@@ -106,7 +106,6 @@ def update_disc(id):
 
 
 @disc_routes.route('<int:id>')
-@login_required
 def get_one_disc(id):
     """
     Query for a specific disc and returns it as a disc dictionary
