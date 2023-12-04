@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import Disc, Review, User, db
-from ..forms import DiscForm, UpdateDiscForm
+from app.models import Disc, Review, db
+from ..forms import DiscForm, UpdateDiscForm, ReviewForm
 from .auth_routes import validation_errors_to_error_messages
 from .aws_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
 from datetime import date
@@ -101,7 +101,75 @@ def update_disc(id):
         return jsonify(update_disc.to_dict())
     else:
         return jsonify({'errors': validation_errors_to_error_messages(form.errors)}), 400
+    
 
+@disc_routes.route('/<int:id>/reviews/new', methods=['GET','POST'])
+@login_required
+def create_review_for_disc(id):
+    """
+    Create review for a specific disc
+    """
+    form = ReviewForm()
+
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        disc = Disc.query.get(id)
+        if not disc:
+            return jsonify({'errors': 'Disc not found'}), 404
+        
+        existing_review = Review.query.filter_by(
+            user_id = current_user.id,
+            disc_id = id
+        ).first()
+
+        if existing_review:
+            return jsonify({'message': 'You have already reviewed this disc.'})
+        
+        review = Review(
+            user_id = current_user.id,
+            review = form.data['review'],
+            rating = form.data['rating'],
+            created_at = date.today()
+        )
+        disc.reviews.append(review)
+        db.session.commit()
+        return jsonify(review.to_dict()), 201
+    else:
+        return jsonify({'errors': form.errors}), 400
+    
+
+@disc_routes.route('/<int:disc_id>/reviews/<int:review_id>', methods=['PUT'])
+def update_review(disc_id, review_id):
+    form = ReviewForm()
+
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        review = Review.query.filter(Review.id == review_id, Review.disc_id == disc_id, Review.user_id == current_user.id).first()
+        if not review:
+            return jsonify({'errors': 'Review not found'})
+        
+        review.review = form.data['review']
+        review.rating = form.data['rating']
+
+        db.session.commit()
+        return jsonify(review.to_dict()), 200
+    return jsonify({'errors': form.errors}), 400
+
+
+    
+@disc_routes.route('/<int:id>/reviews')
+@login_required
+def get_disc_reviews(id):
+    """
+    Query for all reviews related to a disc
+    """
+    disc = Disc.query.get(id)
+    if disc:
+        reviews = [review.to_dict() for review in disc.reviews]
+        return jsonify(reviews)
+    return jsonify({'errors': 'Disc not found'})
 
 
 
@@ -130,5 +198,5 @@ def delete_disc(id):
         db.session.commit()
         return jsonify({'message': 'Successfully deleted'})
     else:
-        return jsonify({'error': 'Could not locate disc'})
+        return jsonify({'errors': 'Could not locate disc'})
     
