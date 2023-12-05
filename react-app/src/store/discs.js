@@ -181,6 +181,9 @@ export default function discsReducer(state = initState, action) {
              delete newState.allDiscs[action.discId]
              return newState
 
+        default:
+            return state
+
     }
 }
 
