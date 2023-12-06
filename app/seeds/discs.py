@@ -12,20 +12,20 @@ def seed_discs():
     glide=5,
     turn=-1,
     fade=3,
-    photo_url='https://m.media-amazon.com/images/I/61MoHShoiuL._AC_UF1000,1000_QL80_.jpg',
+    photo_url='https://www.innovadiscs.com/wp-content/uploads/2014/11/EchoStar-Destroyer.jpg',
     created_at=date.today()
   )
   db.session.add(new_disc_1)
 
   new_disc_2 = Disc(
     owner_id=1,
-    name='Bulldog',
-    category='midrange',
+    name='Cobra',
+    category='Mid Range',
     speed=4,
-    glide=3,
-    turn=0,
+    glide=5,
+    turn=-2,
     fade=2,
-    photo_url='https://titandiscgolf.com/cdn/shop/products/IMG_3243_1024x.jpg?v=1623191373',
+    photo_url='https://www.innovadiscs.com/wp-content/uploads/2015/02/DX-Cobra.jpg',
     created_at=date.today()
   )
   db.session.add(new_disc_2)
@@ -149,13 +149,13 @@ def seed_discs():
 
   new_disc_12 = Disc(
     owner_id=3,
-    name='Alien',
+    name='Coyote',
     category='Mid Range',
     speed=4,
-    glide=2,
+    glide=5,
     turn=0,
     fade=1,
-    photo_url='https://www.innovadiscs.com/wp-content/uploads/2023/08/alien_dx_yellow_1x1.jpg',
+    photo_url='https://www.innovadiscs.com/wp-content/uploads/2015/02/Star-Coyote.jpg',
     created_at=date.today()
   )
   db.session.add(new_disc_12)
@@ -181,7 +181,7 @@ def seed_discs():
     glide=5,
     turn=-2,
     fade=2,
-    photo_url='https://www.innovadiscs.com/wp-content/uploads/2015/02/beast_halo-star.jpg',
+    photo_url='https://www.innovadiscs.com/wp-content/uploads/2015/02/Pro-Beast.jpg',
     created_at=date.today()
   )
   db.session.add(new_disc_14)
