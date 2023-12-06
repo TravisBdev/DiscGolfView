@@ -4,9 +4,11 @@ import './LandingPage.css'
 
 const LandingPage = () => {
     return (
-        <div className='index-container'>
-            <DiscIndex/>
-        </div>
+        <>
+            <div className='index-container'>
+                <DiscIndex/>
+            </div>
+        </>
     )
 }
 
