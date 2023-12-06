@@ -15,7 +15,7 @@ def get_all_discs():
     Query for all discs and returns them in a list of disc dictionaries
     """
     discs = Disc.query.all()
-    return jsonify({'Discs': [disc.to_dict() for disc in discs]})
+    return jsonify([disc.to_dict() for disc in discs])
 
 
 @disc_routes.route('/current')
