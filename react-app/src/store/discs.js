@@ -43,10 +43,10 @@ const updateDisc = (disc) => {
     }
 }
 
-const deleteDisc = (discId) => {
+const deleteDisc = (id) => {
     return {
         type: delete_disc,
-        discId
+        id
     }
 }
 
@@ -114,8 +114,8 @@ export const createADisc = (disc) => async dispatch => {
 }
 
 //Update an existing disc
-export const updateADisc = (disc, discId) => async dispatch => {
-    const res = await fetch(`/api/discs/update/${discId}`, {
+export const updateADisc = (disc, id) => async dispatch => {
+    const res = await fetch(`/api/discs/update/${id}`, {
         method: 'PUT',
         body: disc
     })
@@ -131,13 +131,13 @@ export const updateADisc = (disc, discId) => async dispatch => {
 }
 
 //Delete a disc
-export const deleteADisc = (discId) => async dispatch => {
-    const res = await fetch(`/api/discs/${discId}`, {
+export const deleteADisc = (id) => async dispatch => {
+    const res = await fetch(`/api/discs/${id}`, {
         method: 'DELETE'
     })
 
     if(res.ok) {
-        dispatch(deleteDisc(discId))
+        dispatch(deleteDisc(id))
     }else {
         const errors = await res.json()
         return errors
@@ -173,7 +173,7 @@ export default function discsReducer(state = initState, action) {
 
         case get_user_discs:
             newState = {...state, userDiscs: {}}
-            action.discs.foeEach(disc => newState.userDiscs[disc.id] = disc)
+            action.discs.forEach(disc => newState.userDiscs[disc.id] = disc)
             return newState
 
         case delete_disc:
@@ -186,15 +186,3 @@ export default function discsReducer(state = initState, action) {
 
     }
 }
-
-
-
-
-
-
-// const get_Discs = 'discs/get_Discs'
-// const get_One_Disc = 'discs/get_One_Disc'
-// const get_user_discs = 'discs/get_user_discs'
-// const create_Disc = 'discs/create_Disc'
-// const update_Disc = 'discs/update_Disc'
-// const delete_Disc = 'discs/delete_Disc'
