@@ -1,0 +1,7 @@
+.disc-index{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    /* padding: .5rem; */
+    gap: 1rem;
+}

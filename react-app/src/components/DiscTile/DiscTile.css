@@ -1,0 +1,30 @@
+.disc-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 250px;
+    overflow: hidden;
+}
+
+.disc-details-link {
+    text-decoration: none;
+}
+
+.disc-details {
+   text-align: center;
+}
+
+.disc-img-container {
+    width: 100%;
+}
+
+.disc-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.disc-stats {
+    display: flex;
+    justify-content: space-around;
+}
