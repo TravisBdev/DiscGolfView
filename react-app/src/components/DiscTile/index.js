@@ -10,14 +10,14 @@ const DiscTile = ({disc}) => {
                     <img src={disc.photoUrl} alt="" className="disc-img" />
                 </div>
                 <div className="disc-details">
-                    <h1>{disc.name}</h1>
-                    <h2>{disc.category}</h2>
-                    <h3>{disc.owner.username}</h3>
+                    <p className="disc-name">{disc.name}</p>
+                    <p className="disc-category">{disc.category}</p>
+                    {/* <p className="owner-name">Owner: {disc.owner.username}</p> */}
                     <div className="disc-stats">
-                        <p>{disc.speed}</p>
-                        <p>{disc.glide}</p>
-                        <p>{disc.turn}</p>
-                        <p>{disc.fade}</p>
+                        <div>Speed<p>{disc.speed}</p></div>
+                        <div>Glide<p>{disc.glide}</p></div>
+                        <div>Turn<p>{disc.turn}</p></div>
+                        <div>Fade<p>{disc.fade}</p></div>
                     </div>
                 </div>
             </div>

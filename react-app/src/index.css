@@ -1,5 +1,6 @@
 /* TODO Add site wide styles */
-* {
-    background-color: #070724;
-    color: white;
+html, body {
+ padding: 0;
+ margin: 0;
+ background-color: rgb(189, 189, 189);
 }

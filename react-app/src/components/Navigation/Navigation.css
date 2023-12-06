@@ -5,3 +5,27 @@
 .hidden {
   display: none;
 }
+
+.nav-bar {
+  border-bottom: 1px solid black;
+  margin-bottom: 1rem;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: flex-end;
+  list-style-type: none;
+}
+
+.nav-item {
+  margin: 0 .3rem 0 .3rem
+}
+
+.nav-item a{
+  text-decoration: none;
+}
+.nav-item a:visited{
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+}
