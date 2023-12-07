@@ -1,0 +1,68 @@
+.details-container {
+    margin: 2rem;
+    /* height: 100vh; */
+}
+
+.img-info-container {
+    display: flex;
+    /* justify-content: space-between; */
+    justify-content: center;
+}
+
+.img-container {
+    margin-right: 1rem;
+    max-width: 800px;
+}
+
+.disc-details-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.disc-stats-container {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.disc-info {
+    display: flex;
+    flex-direction: column;
+    /* width: 20%; */
+    max-width: 800px;
+    background-color: rgb(49, 49, 49);
+    color: #fff;
+    padding: 1rem;
+}
+
+.disc-info h1 {
+    font-size: 4rem;
+    align-self: center;
+}
+
+.disc-details-description {
+    font-size: 2rem;
+}
+
+.disc-details-owner {
+    align-self: center;
+}
+
+.disc-stat {
+    border: 1px solid white;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 5rem;
+    height: auto;
+    background-color: rgb(49, 49, 49);
+    color: #fff;
+}
+
+.disc-stat p {
+    margin: 0 0 .2rem 0;
+}

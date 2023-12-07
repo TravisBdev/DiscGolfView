@@ -17,7 +17,24 @@ const DiscDetails = () => {
 
     return (
         <div className="details-container">
-            {disc.description}
+            {disc && (
+                <>
+                    <section className="img-info-container">
+                        <div className="img-container"><img src={disc.photoUrl} alt="" className="disc-details-img"/></div>
+                        <aside className="disc-info">
+                            <h1>{disc.name}</h1>
+                            <p className="disc-details-description">{disc.description}</p>
+                            <p className="disc-details-owner">owned by: {disc.owner.username}</p>
+                        </aside>
+                    </section>
+                    <section className="disc-stats-container">
+                        <div className="disc-stat"><p>Speed:</p> {disc.speed}</div>
+                        <div className="disc-stat"><p>Glide:</p> {disc.glide}</div>
+                        <div className="disc-stat"><p>Turn:</p> {disc.fade}</div>
+                        <div className="disc-stat"><p>Fade:</p> {disc.turn}</div>
+                    </section>
+                </>
+            )}
         </div>
     )
 
