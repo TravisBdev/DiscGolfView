@@ -7,6 +7,7 @@ def seed_discs():
   new_disc_1 = Disc(
     owner_id=1,
     name='Destroyer',
+    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
     category='Driver',
     speed=12,
     glide=5,
@@ -20,6 +21,7 @@ def seed_discs():
   new_disc_2 = Disc(
     owner_id=1,
     name='Cobra',
+    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
     category='Mid Range',
     speed=4,
     glide=5,
@@ -33,6 +35,7 @@ def seed_discs():
   new_disc_3 = Disc(
     owner_id=1,
     name='Birdie',
+    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
     category='Putt & Approach',
     speed=1,
     glide=2,
@@ -46,6 +49,7 @@ def seed_discs():
   new_disc_4 = Disc(
     owner_id=2,
     name='TeeDevil',
+    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
     category='Driver',
     speed=12,
     glide=5,
@@ -59,6 +63,7 @@ def seed_discs():
   new_disc_5 = Disc(
     owner_id=2,
     name='Tern',
+    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
     category='Driver',
     speed=12,
     glide=6,
@@ -72,6 +77,7 @@ def seed_discs():
   new_disc_6 = Disc(
     owner_id=2,
     name='Wahoo',
+    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
     category='Driver',
     speed=12,
     glide=6,
@@ -85,6 +91,7 @@ def seed_discs():
   new_disc_7 = Disc(
     owner_id=2,
     name='Atlas',
+    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
     category='Mid Range',
     speed=5,
     glide=4,
@@ -98,6 +105,7 @@ def seed_discs():
   new_disc_8 = Disc(
     owner_id=2,
     name='Cro',
+    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
     category='Mid Range',
     speed=5,
     glide=3,
@@ -111,6 +119,7 @@ def seed_discs():
   new_disc_9 = Disc(
     owner_id=2,
     name='Animal',
+    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
     category='Putt & Approach',
     speed=2,
     glide=1,
@@ -124,6 +133,7 @@ def seed_discs():
   new_disc_10 = Disc(
     owner_id=3,
     name='Archangel',
+    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
     category='Fairway',
     speed=8,
     glide=6,
@@ -137,6 +147,7 @@ def seed_discs():
   new_disc_11 = Disc(
     owner_id=3,
     name='Dragon',
+    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
     category='Fairway',
     speed=8,
     glide=5,
@@ -150,6 +161,7 @@ def seed_discs():
   new_disc_12 = Disc(
     owner_id=3,
     name='Coyote',
+    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
     category='Mid Range',
     speed=4,
     glide=5,
@@ -163,6 +175,7 @@ def seed_discs():
   new_disc_13 = Disc(
     owner_id=3,
     name='Sonic',
+    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
     category='Putt & Approach',
     speed=1,
     glide=2,
@@ -176,6 +189,7 @@ def seed_discs():
   new_disc_14 = Disc(
     owner_id=4,
     name='Beast',
+    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
     category='Driver',
     speed=10,
     glide=5,
@@ -189,6 +203,7 @@ def seed_discs():
   new_disc_15 = Disc(
     owner_id=4,
     name='Wraith',
+    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
     category='Driver',
     speed=11,
     glide=5,
@@ -202,6 +217,7 @@ def seed_discs():
   new_disc_16 = Disc(
     owner_id=4,
     name='Lion',
+    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
     category='Mid Range',
     speed=5,
     glide=4,
@@ -215,6 +231,7 @@ def seed_discs():
   new_disc_17 = Disc(
     owner_id=4,
     name='Aviar3',
+    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
     category='Putt & Approach',
     speed=3,
     glide=2,

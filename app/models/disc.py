@@ -10,6 +10,7 @@ class Disc(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   owner_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
   name = db.Column(db.String(25), nullable=False)
+  description = db.Column(db.String(1000), nullable=False)
   category = db.Column(db.String(15), nullable=False)
   speed = db.Column(db.Integer, nullable=False)
   glide = db.Column(db.Integer, nullable=False)
@@ -27,6 +28,7 @@ class Disc(db.Model):
       'id': self.id,
       'owner_id': self.owner_id,
       'name': self.name,
+      'description': self.description,
       'category': self.category,
       'speed': self.speed,
       'glide': self.glide,

@@ -50,6 +50,7 @@ def create_new_disc():
         new_disc = Disc(
             owner_id = current_user.id,
             name = form.data['name'],
+            description = form.data['description'],
             category = form.data['category'],
             speed = form.data['speed'],
             glide = form.data['glide'],
@@ -91,6 +92,7 @@ def update_disc(id):
 
         
         update_disc.name = form.data['name']
+        update_disc.description = form.data['description']
         update_disc.category = form.data['category']
         update_disc.speed = form.data['speed']
         update_disc.glide = form.data['glide']

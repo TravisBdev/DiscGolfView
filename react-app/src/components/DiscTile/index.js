@@ -4,7 +4,7 @@ import './DiscTile.css'
 
 const DiscTile = ({disc}) => {
     return (
-        <Link to={`/discs/${disc.id}`} className='disc-details-link'>
+        <Link to={`/${disc.id}`} className='disc-details-link'>
             <div className="disc-tile">
                 <div className="disc-img-container">
                     <img src={disc.photoUrl} alt="" className="disc-img" />
