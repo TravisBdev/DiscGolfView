@@ -17,7 +17,7 @@ const DiscDetails = () => {
 
     return (
         <div className="details-container">
-            {disc.name}
+            {disc.description}
         </div>
     )
 
