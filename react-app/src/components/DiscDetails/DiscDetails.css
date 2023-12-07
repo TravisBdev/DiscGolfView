@@ -1,11 +1,9 @@
 .details-container {
-    margin: 2rem;
-    /* height: 100vh; */
+    margin: 4rem 2rem 2rem 2rem;
 }
 
 .img-info-container {
     display: flex;
-    /* justify-content: space-between; */
     justify-content: center;
 }
 
@@ -19,12 +17,16 @@
     height: auto;
     display: block;
     object-fit: contain;
+    border: 1px solid #000;
+    box-shadow: -1px 4px 5px 0px rgba(0,0,0,0.75);
+    border-radius: 10px;
 }
 
 .disc-stats-container {
     display: flex;
     gap: 1rem;
     margin-top: 2rem;
+    margin-right: 2rem;
     justify-content: center;
 }
 
@@ -36,15 +38,20 @@
     background-color: rgb(49, 49, 49);
     color: #fff;
     padding: 1rem;
+    border: 1px solid #fff;
+    box-shadow: -1px 4px 5px 0px rgba(0,0,0,0.75);
+    border-radius: 10px;
 }
 
 .disc-info h1 {
     font-size: 4rem;
     align-self: center;
+    margin: 0;
 }
 
 .disc-details-description {
     font-size: 2rem;
+    line-height: 1.5;
 }
 
 .disc-details-owner {
@@ -61,8 +68,21 @@
     height: auto;
     background-color: rgb(49, 49, 49);
     color: #fff;
+    box-shadow: -1px 4px 5px 0px rgba(0,0,0,0.75);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.disc-stat:hover {
+    color: rgb(248, 1, 248);
+    border: 1px solid rgb(248, 1, 248);
 }
 
 .disc-stat p {
     margin: 0 0 .2rem 0;
+}
+
+.disc-stat div {
+    margin-top: .2rem;
+    font-size: 2.5rem;
 }

@@ -2,6 +2,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getDiscDetails } from "../../store/discs";
 import { useEffect } from "react";
+import {useModal} from '../../context/Modal'
+import DiscDetailsModal from "../DiscDetailsModal";
+import discFlightData from "./discData";
 
 import './DiscDetails.css'
 
@@ -10,10 +13,16 @@ const DiscDetails = () => {
     const {id} = useParams()
     const dispatch = useDispatch()
     const disc = useSelector(state => state.discs.allDiscs[id])
+    const {setModalContent} = useModal()
 
     useEffect(() => {
         dispatch(getDiscDetails(id))
     }, [dispatch, id])
+
+    const showStats = (stat) => {
+        const flightDetail = discFlightData.find(obj => obj.name.toUpperCase() === stat.toUpperCase())
+        setModalContent(<DiscDetailsModal data={flightDetail}/>)
+    }
 
     return (
         <div className="details-container">
@@ -28,10 +37,10 @@ const DiscDetails = () => {
                         </aside>
                     </section>
                     <section className="disc-stats-container">
-                        <div className="disc-stat"><p>Speed:</p> {disc.speed}</div>
-                        <div className="disc-stat"><p>Glide:</p> {disc.glide}</div>
-                        <div className="disc-stat"><p>Turn:</p> {disc.fade}</div>
-                        <div className="disc-stat"><p>Fade:</p> {disc.turn}</div>
+                        <div className="disc-stat" onClick={() => showStats('Speed')}><p>Speed:</p> <div>{disc.speed}</div></div>
+                        <div className="disc-stat" onClick={() => showStats('Glide')}><p>Glide:</p> <div>{disc.glide}</div></div>
+                        <div className="disc-stat" onClick={() => showStats('Turn')}><p>Turn:</p> <div>{disc.turn}</div></div>
+                        <div className="disc-stat" onClick={() => showStats('Fade')}><p>Fade:</p> <div>{disc.fade}</div></div>
                     </section>
                 </>
             )}
