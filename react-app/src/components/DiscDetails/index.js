@@ -9,6 +9,7 @@ import discFlightData from "./discData";
 import './DiscDetails.css'
 
 
+
 const DiscDetails = () => {
     const {id} = useParams()
     const dispatch = useDispatch()
@@ -37,10 +38,10 @@ const DiscDetails = () => {
                         </aside>
                     </section>
                     <section className="disc-stats-container">
-                        <div className="disc-stat" onClick={() => showStats('Speed')}><p>Speed:</p> <div>{disc.speed}</div></div>
-                        <div className="disc-stat" onClick={() => showStats('Glide')}><p>Glide:</p> <div>{disc.glide}</div></div>
-                        <div className="disc-stat" onClick={() => showStats('Turn')}><p>Turn:</p> <div>{disc.turn}</div></div>
-                        <div className="disc-stat" onClick={() => showStats('Fade')}><p>Fade:</p> <div>{disc.fade}</div></div>
+                        <div className="disc-stat" onClick={() => showStats('SPEED')}><p>Speed:</p> <div>{disc.speed}</div></div>
+                        <div className="disc-stat" onClick={() => showStats('GLIDE')}><p>Glide:</p> <div>{disc.glide}</div></div>
+                        <div className="disc-stat" onClick={() => showStats('TURN')}><p>Turn:</p> <div>{disc.turn}</div></div>
+                        <div className="disc-stat" onClick={() => showStats('FADE')}><p>Fade:</p> <div>{disc.fade}</div></div>
                     </section>
                 </>
             )}

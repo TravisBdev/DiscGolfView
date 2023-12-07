@@ -15,7 +15,7 @@ const discFlightData = [
         summary: 'High Speed Turn is the tendency of a disc to turn over or bank to the right (for right hand throws) during the initial part of the flight. A disc with a +1 rating is most resistant to turning over, while a -5 rating will turn the most. Discs rated -3 to -5 make good roller discs. Discs with less turn are more accurate in the wind. Discs with more turn are easier to throw for beginners.'
     },
     {
-        name: 'Fade',
+        name: 'FADE',
         numbers: '0 to 5',
         summary: 'Low Speed Fade is the discs tendency to hook left (for right hand throws) at the end of the flight. Fade is rated from 0 to 5. A disc rated 0 will finish straightest, while a disc rated 5 will hook hard at the end of the flight. High fade discs are usually used for Spike and Skip shots.'
     }
