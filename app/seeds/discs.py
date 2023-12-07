@@ -7,7 +7,7 @@ def seed_discs():
   new_disc_1 = Disc(
     owner_id=1,
     name='Destroyer',
-    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
+    description='The Destroyer is a fast, stable power driver with significant glide. A great disc for sidearm throwers and those with lots of power.',
     category='Driver',
     speed=12,
     glide=5,
@@ -21,7 +21,7 @@ def seed_discs():
   new_disc_2 = Disc(
     owner_id=1,
     name='Cobra',
-    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
+    description='An excellent all-around disc that is easy to grip. Gets better with age. Great for rollers, finesse shots, and is a terrific disc for beginners.',
     category='Mid Range',
     speed=4,
     glide=5,
@@ -35,7 +35,7 @@ def seed_discs():
   new_disc_3 = Disc(
     owner_id=1,
     name='Birdie',
-    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
+    description='The Birdie is our best "go for it" disc and an excellent approach disc. It is a slow, straight flyer with a sure Thumtrac™ grip that makes it easy to go for it without worry.',
     category='Putt & Approach',
     speed=1,
     glide=2,
@@ -49,7 +49,7 @@ def seed_discs():
   new_disc_4 = Disc(
     owner_id=2,
     name='TeeDevil',
-    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
+    description='The TeeDevil was designed to give the thrower big distance with control. The glide in combination with low fade lead to a distance driver that really rips!',
     category='Driver',
     speed=12,
     glide=5,
@@ -63,7 +63,7 @@ def seed_discs():
   new_disc_5 = Disc(
     owner_id=2,
     name='Tern',
-    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
+    description='The Tern is a fast, slightly understable disc that is designed for long shot shaping throws with a flight path that maximizes glide.',
     category='Driver',
     speed=12,
     glide=6,
@@ -77,7 +77,7 @@ def seed_discs():
   new_disc_6 = Disc(
     owner_id=2,
     name='Wahoo',
-    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
+    description='The Wahoo is a long range distance driver that floats in water and will keep you at the top of the food chain.',
     category='Driver',
     speed=12,
     glide=6,
@@ -91,7 +91,7 @@ def seed_discs():
   new_disc_7 = Disc(
     owner_id=2,
     name='Atlas',
-    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
+    description='The Atlas is an overmold Mid-Range with a small amount of high speed turn and very little fade.',
     category='Mid Range',
     speed=5,
     glide=4,
@@ -105,7 +105,7 @@ def seed_discs():
   new_disc_8 = Disc(
     owner_id=2,
     name='Cro',
-    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
+    description='The Cro is a small diameter Mid-Range flies slightly overstable. A great small diameter alternative to the Roc or Shark.',
     category='Mid Range',
     speed=5,
     glide=3,
@@ -119,7 +119,7 @@ def seed_discs():
   new_disc_9 = Disc(
     owner_id=2,
     name='Animal',
-    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
+    description='The Animal was designed to be a short-range, stable forehand and backhand approach disc. It’s also a good putter in the wind and inside the circle.',
     category='Putt & Approach',
     speed=2,
     glide=1,
@@ -133,7 +133,7 @@ def seed_discs():
   new_disc_10 = Disc(
     owner_id=3,
     name='Archangel',
-    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
+    description='The Archangel is a turnover driver that maximizes distance for less powerful players.',
     category='Fairway',
     speed=8,
     glide=6,
@@ -147,7 +147,7 @@ def seed_discs():
   new_disc_11 = Disc(
     owner_id=3,
     name='Dragon',
-    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
+    description='The Dragon is a lightweight driver that floats in water, made with extra grippy plastic.',
     category='Fairway',
     speed=8,
     glide=5,
@@ -161,7 +161,7 @@ def seed_discs():
   new_disc_12 = Disc(
     owner_id=3,
     name='Coyote',
-    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
+    description='The Coyote is a mid-range disc with good glide that flies predictably for straight, gentle turnover, or hyzer shots. It is an easy to throw disc with a friendly grip. A great choice for players using only one disc.',
     category='Mid Range',
     speed=4,
     glide=5,
@@ -175,7 +175,7 @@ def seed_discs():
   new_disc_13 = Disc(
     owner_id=3,
     name='Sonic',
-    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
+    description='The Sonic, based on the Hero 235, is a new putt and approach disc. This disc has a comfortable low profile grip with great thumb traction.',
     category='Putt & Approach',
     speed=1,
     glide=2,
@@ -189,7 +189,7 @@ def seed_discs():
   new_disc_14 = Disc(
     owner_id=4,
     name='Beast',
-    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
+    description="The Beast is a long distance driver with a gliding, predictable finish. It's sure to increase distance for beginners and pros alike.",
     category='Driver',
     speed=10,
     glide=5,
@@ -203,7 +203,7 @@ def seed_discs():
   new_disc_15 = Disc(
     owner_id=4,
     name='Wraith',
-    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
+    description='The Wraith is a long and fast distance driver. A stable flyer that performs predictably into the wind.',
     category='Driver',
     speed=11,
     glide=5,
@@ -217,7 +217,7 @@ def seed_discs():
   new_disc_16 = Disc(
     owner_id=4,
     name='Lion',
-    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
+    description='Tame your mid-range shots. Defined by its stable flight, the Lion will attack at any angle—hyzer, flat, or anhyzer.',
     category='Mid Range',
     speed=5,
     glide=4,
@@ -231,7 +231,7 @@ def seed_discs():
   new_disc_17 = Disc(
     owner_id=4,
     name='Aviar3',
-    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna et pharetra pharetra massa massa.',
+    description="The Aviar3 has the same comfortable grip you'd expect in an Aviar putter but with a distinctive flat top. In the hand you feel the lower profile. It feels fast. Even better, it can handle the speed. Throw the Aviar3 with power, backhand or forehand, and you can trust it to drop on target.",
     category='Putt & Approach',
     speed=3,
     glide=2,
