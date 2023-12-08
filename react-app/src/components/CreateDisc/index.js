@@ -19,7 +19,7 @@ const CreateDisc = () => {
     const [imageLoading, setImageLoading] = useState(false)
     const [errors, setErrors] = useState({})
 
-    const checkErrors = (...args) => {
+    const checkErrors = () => {
         const errors = {}
         if(!name) errors.name = 'Name is required.'
         if(name.length > 20 || name.length < 2) errors.name = 'Name must be between 2 and 20 characters.'
@@ -43,7 +43,7 @@ const CreateDisc = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const errorsList = checkErrors(name, description, category, speed, glide, turn, fade, image)
+        const errorsList = checkErrors()
 
         const formData = new FormData()
         formData.append('name', name)
