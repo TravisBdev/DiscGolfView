@@ -96,16 +96,16 @@ export const getAllUserDiscs = () => async dispatch => {
 }
 
 //Create a new disc
-export const createADisc = (disc) => async dispatch => {
+export const createADisc = (form) => async dispatch => {
     const res = await fetch('/api/discs/new', {
         method: 'POST',
-        body: disc
+        body: form
     })
 
     if(res.ok) {
-        const newDisc = await res.json()
-        dispatch(createDisc(newDisc))
-        return newDisc
+        const {resPost} = await res.json()
+        dispatch(createDisc(resPost))
+        return resPost
     }else {
         const errors = await res.json()
         return errors
