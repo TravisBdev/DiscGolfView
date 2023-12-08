@@ -61,7 +61,7 @@ def create_new_disc():
         )
         db.session.add(new_disc)
         db.session.commit()
-        return jsonify(new_disc.to_dict())
+        return {'resPost': new_disc.to_dict()}
     else:
         return jsonify({'errors': validation_errors_to_error_messages(form.errors)}), 400
 
