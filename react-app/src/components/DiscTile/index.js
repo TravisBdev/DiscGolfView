@@ -12,7 +12,6 @@ const DiscTile = ({disc}) => {
                 <div className="disc-details">
                     <p className="disc-name">{disc.name}</p>
                     <p className="disc-category">{disc.category}</p>
-                    {/* <p className="owner-name">Owner: {disc.owner.username}</p> */}
                     <div className="disc-stats">
                         <div>Speed<p>{disc.speed}</p></div>
                         <div>Glide<p>{disc.glide}</p></div>
