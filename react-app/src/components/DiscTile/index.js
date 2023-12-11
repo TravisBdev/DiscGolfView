@@ -6,7 +6,7 @@ const DiscTile = ({disc}) => {
     return (
         <Link to={`/${disc.id}`} className='disc-details-link'>
             <div className="disc-tile">
-                <div className="disc-img-container">
+                <div className="disc-img-container" >
                     <img src={disc.photoUrl} alt="" className="disc-img" />
                 </div>
                 <div className="disc-details">
