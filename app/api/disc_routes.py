@@ -175,7 +175,7 @@ def get_disc_reviews(id):
 
 
 
-@disc_routes.route('<int:id>')
+@disc_routes.route('/<int:id>')
 def get_one_disc(id):
     """
     Query for a specific disc and returns it as a disc dictionary
@@ -186,7 +186,7 @@ def get_one_disc(id):
     return jsonify({'errors': 'Disc not found'})
 
 
-@disc_routes.route('<int:id>', methods=['DELETE'])
+@disc_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_disc(id):
     """

@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import LandingPage from './components/LandingPage'
-// import CreateDisc from './components/CreateDisc'
+import CreateDisc from './components/CreateDisc'
 import DiscDetails from './components/DiscDetails'
 // import UpdateDisc from './components/UpdateDisc'
 // import UserDiscs from './components/UserDiscs'
@@ -23,12 +23,12 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          <Route exact path='/' component={LandingPage}/>
           <Route path="/login" component={LoginFormPage} />
           <Route path="/signup" component={SignupFormPage}/>
+          <Route path='/new' component={CreateDisc}/>
           <Route path='/:id' component={DiscDetails}/>
-          <Route path='/' component={LandingPage}/>
           {/* <Route path='/current' component={UserDiscs}/> */}
-          {/* <Route path='/new' component={CreateDisc}/> */}
           {/* <Route path='/update/:discId' component={UpdateDisc}/> */}
         </Switch>
       )}

@@ -10,7 +10,7 @@ def check_flight_numbers(form, field):
         raise ValidationError('Flight numbers must be between -8 and 15')
     
 def check_char_count(form, field):
-    if field.data > 1000 or field.data < 10:
+    if len(field.data) > 1000 or len(field.data) < 10:
         raise ValidationError('Description must be between 10 and 1000 characters.')
 
 

@@ -1,0 +1,40 @@
+.form-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.new-disc-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    background-color: #313131;
+    box-shadow: -1px 4px 5px 0px rgba(0,0,0,0.75);    color: #fff;
+}
+
+.form-box {
+    margin: 1rem 0 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%; 
+}
+
+.form-box input,
+.form-box select,
+.form-box textarea {
+    border-radius: 5px;
+    line-height: 1.5;
+    border: none;
+    width: 40%;
+}
+
+.form-box label {
+    margin-bottom: .5rem;
+}
