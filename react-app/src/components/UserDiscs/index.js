@@ -5,6 +5,7 @@ import { getAllUserDiscs } from "../../store/discs";
 
 import './UserDiscs.css'
 const UserDiscs = () => {
+    
     const dispatch = useDispatch()
     const discs = useSelector(state => Object.values(state.discs.userDiscs))
     const user = useSelector(state => state.session.user)

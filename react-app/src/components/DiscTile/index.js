@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import './DiscTile.css'
 
 
 const DiscTile = ({disc}) => {
+    const location = useLocation()
     return (
         <Link to={`/${disc.id}`} className='disc-details-link'>
             <div className="disc-tile">
@@ -17,7 +19,13 @@ const DiscTile = ({disc}) => {
                         <div>Glide<p>{disc.glide}</p></div>
                         <div>Turn<p>{disc.turn}</p></div>
                         <div>Fade<p>{disc.fade}</p></div>
+                </div>
+                {location.pathname === '/current' &&
+                    <div className="manage-btns">
+                        <button className="update">Update</button>
+                        <button className="delete">Delete</button>
                     </div>
+                }
                 </div>
             </div>
         </Link>
