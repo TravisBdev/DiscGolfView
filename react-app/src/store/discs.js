@@ -178,8 +178,8 @@ export default function discsReducer(state = initState, action) {
             return newState
 
         case delete_disc:
-             newState = {...state, allDiscs: {...state.allDiscs}}
-             delete newState.allDiscs[action.discId]
+             newState = {...state, userDiscs: {...state.userDiscs}}
+             delete newState.userDiscs[action.id]
              return newState
 
         default:

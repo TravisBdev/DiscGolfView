@@ -1,10 +1,18 @@
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { useModal } from "../../context/Modal";
+import DeleteDiscModal from "../DeleteDiscModal";
 import './DiscTile.css'
 
 
 const DiscTile = ({disc}) => {
     const location = useLocation()
+    const {setModalContent} = useModal()
+
+    const showDeleteModal = () => {
+        setModalContent(<DeleteDiscModal id={disc.id}/>)
+    }
+
     return (
         <div className="tile-wrapper">
             <Link to={`/${disc.id}`} className='disc-details-link'>
@@ -27,7 +35,7 @@ const DiscTile = ({disc}) => {
             {location.pathname === '/current' &&
                     <div className="manage-btns">
                         <Link to={`/update/${disc.id}`}><button className="update">Update</button></Link>
-                        <button className="delete">Delete</button>
+                        <button className="delete" onClick={() => showDeleteModal()}>Delete</button>
                     </div>
                 }
         </div>
