@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createADisc } from "../../store/discs";
@@ -19,31 +19,30 @@ const CreateDisc = () => {
     const [imageLoading, setImageLoading] = useState(false)
     const [errors, setErrors] = useState({})
 
-    const checkErrors = () => {
+    useEffect(() => {
         const errors = {}
         if(!name) errors.name = 'Name is required.'
         if(name.length > 20 || name.length < 2) errors.name = 'Name must be between 2 and 20 characters.'
         if(!description) errors.description = 'Description is required.'
         if(description.length < 10 || description.length > 1000) errors.description = 'Description must be between 10 and 1000 characters.'
         if(!category) errors.category = 'Category is required'
-        if(!speed || isNaN(speed)) errors.speed = 'Speed is required.'
+        if(speed === undefined || speed === '' || isNaN(speed)) errors.speed = 'Speed is required.'
         if(speed < 1 || speed > 14) errors.speed = 'Speed must be between 1 and 14.'
-        if(!glide || isNaN(glide)) errors.glide = 'Glide is required.'
+        if(glide === undefined || glide === '' || isNaN(glide)) errors.glide = 'Glide is required.'
         if(glide < 1 || glide > 7) errors.glide = 'Glide must be between 1 and 7.'
-        if(!turn || isNaN(turn)) errors.turn = 'Turn is required'
+        if(turn === undefined || turn === '' || isNaN(turn)) errors.turn = 'Turn is required'
         if(turn < -5 || turn > 5) errors.turn = 'Turn must be between -5 and 5.'
-        if(!fade || isNaN(fade)) errors.fade = 'Fade is required.'
+        if(fade === undefined || fade === '' || isNaN(fade)) errors.fade = 'Fade is required'
         if(fade < 0 || fade > 5) errors.fade = 'Fade must be between 0 and 5.'
         if(!image) errors.photo_url = 'Image is required'
 
         setErrors(errors)
         return errors
-
-    }
+    }, [name, description, category, speed, glide, turn, fade, image])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const errorsList = checkErrors()
+        // const errorsList = checkErrors()
 
         const formData = new FormData()
         formData.append('name', name)
@@ -55,7 +54,7 @@ const CreateDisc = () => {
         formData.append('fade', fade)
         formData.append('photo_url', image)
 
-        if(!Object.keys(errorsList).length) {
+        if(!Object.keys(errors).length) {
             const disc = await dispatch(createADisc(formData))
             setImageLoading(true)
 
@@ -143,7 +142,7 @@ const CreateDisc = () => {
 
                     <div className="submit-box form-box">
                         <button 
-                            disabled = {!Object.keys(errors).length === 0}
+                            disabled = {Object.keys(errors).length > 0}
                             type="submit">
                                 Create Disc
                         </button>

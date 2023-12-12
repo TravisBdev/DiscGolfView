@@ -126,6 +126,7 @@ export const updateADisc = (id, data) => async dispatch => {
         return updatedDisc
     }else {
         const errors = await res.json()
+        console.error('update failed', errors)
         return errors
     }
 }
