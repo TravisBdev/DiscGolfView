@@ -18,7 +18,7 @@ class UpdateDiscForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
     description = TextAreaField("Description", validators=[DataRequired(), check_char_count])
     category = SelectField('Category', choices=[
-        'Distance Driver', 'Fairway Driver', 'Midrange', 'Putter'], validators=[DataRequired()])
+        'Driver', 'Fairway', 'Mid Range', 'Putt & Approach'], validators=[DataRequired()])
     speed = IntegerField('Speed', validators=[DataRequired(), check_flight_numbers])
     glide = IntegerField('Glide', validators=[DataRequired(), check_flight_numbers])
     turn = IntegerField('Turn', validators=[DataRequired(), check_flight_numbers])
