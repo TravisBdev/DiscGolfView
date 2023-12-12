@@ -6,7 +6,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import LandingPage from './components/LandingPage'
 import CreateDisc from './components/CreateDisc'
 import DiscDetails from './components/DiscDetails'
-// import UpdateDisc from './components/UpdateDisc'
+import UpdateDisc from './components/UpdateDisc'
 import UserDiscs from './components/UserDiscs'
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
@@ -28,8 +28,8 @@ function App() {
           <Route path="/signup" component={SignupFormPage}/>
           <Route path='/new' component={CreateDisc}/>
           <Route path='/current' component={UserDiscs}/>
+          <Route path='/update/:id' component={UpdateDisc}/>
           <Route path='/:id' component={DiscDetails}/>
-          {/* <Route path='/update/:discId' component={UpdateDisc}/> */}
         </Switch>
       )}
     </>

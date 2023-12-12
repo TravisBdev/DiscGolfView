@@ -114,10 +114,10 @@ export const createADisc = (form) => async dispatch => {
 }
 
 //Update an existing disc
-export const updateADisc = (disc, id) => async dispatch => {
+export const updateADisc = (id, data) => async dispatch => {
     const res = await fetch(`/api/discs/update/${id}`, {
         method: 'PUT',
-        body: disc
+        body: data
     })
 
     if(res.ok) {

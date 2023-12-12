@@ -72,12 +72,13 @@ def update_disc(id):
     """
     Updates a user disc
     """
+    update_disc = Disc.query.get(id)
+    
     form = UpdateDiscForm()
 
     form['csrf_token'].data = request.cookies['csrf_token']
     
     if form.validate_on_submit():
-        update_disc = Disc.query.get(id)
         
         if 'photo_url' in request.files and request.files['photo_url']:
             photo_url = request.files['photo_url']

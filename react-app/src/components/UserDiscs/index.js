@@ -16,7 +16,7 @@ const UserDiscs = () => {
 
     return (
         <div className="user-discs-container">
-            <h1>Discs owned by: {user.username}</h1>
+            <h1>Discs owned by {user.username}</h1>
             <div className="discs-container">
                 {discs.map((disc) => (
                     <DiscTile key={disc.id} disc={disc}/>

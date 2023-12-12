@@ -26,7 +26,7 @@ const DiscTile = ({disc}) => {
             </Link>        
             {location.pathname === '/current' &&
                     <div className="manage-btns">
-                        <button className="update">Update</button>
+                        <Link to={`/update/${disc.id}`}><button className="update">Update</button></Link>
                         <button className="delete">Delete</button>
                     </div>
                 }
