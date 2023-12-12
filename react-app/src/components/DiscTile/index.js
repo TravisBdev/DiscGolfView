@@ -6,7 +6,7 @@ import './DiscTile.css'
 const DiscTile = ({disc}) => {
     const location = useLocation()
     return (
-        <div>
+        <div className="tile-wrapper">
             <Link to={`/${disc.id}`} className='disc-details-link'>
             <div className="disc-tile">
                 <div className="disc-img-container" >
@@ -23,8 +23,8 @@ const DiscTile = ({disc}) => {
                     </div>
                 </div>
             </div>
-            </Link>
-                {location.pathname === '/current' &&
+            </Link>        
+            {location.pathname === '/current' &&
                     <div className="manage-btns">
                         <button className="update">Update</button>
                         <button className="delete">Delete</button>

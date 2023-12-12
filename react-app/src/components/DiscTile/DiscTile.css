@@ -9,6 +9,16 @@
     border-top-left-radius: 10px;
     color: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px; 
+}
+
+.tile-wrapper {
+    background-color: #313131;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px; 
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 }
 
 .disc-details-link {
@@ -18,7 +28,7 @@
 
 .disc-details {
    text-align: center;
-   background-color: rgb(49, 49, 49);
+   background-color: #313131;
    width: 100%;
    margin-top: 0;
    padding: 0;
@@ -45,9 +55,6 @@
 .disc-img-container {
     width: 100%;
     position: relative;
-    /* height: 100%;
-    margin-bottom: 0;
-    padding: 0; */
 }
 
 .disc-img-container::before {
@@ -71,7 +78,7 @@
 }
 
 .manage-btns {
-    background-color: rgb(49, 49, 49);
+    background-color: #313131;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -82,4 +89,22 @@
 .update,
 .delete {
     margin: 0 1rem .7rem 1rem;
+    border: 1px solid transparent;
+    background-color: #bdbdbd;
+    border-radius: 5px;
+    padding: 5px;
+    font-weight: 550;
+    cursor: pointer;
+}
+
+.update:hover {
+    border: 1px solid green;
+    background-color: green;
+    color: #fff;
+}
+
+.delete:hover {
+    border: 1px solid red;
+    background-color: red;
+    color: #fff;
 }
