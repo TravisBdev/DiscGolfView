@@ -98,13 +98,13 @@
 }
 
 .update:hover {
-    border: 1px solid green;
-    background-color: green;
+    border: 1px solid #008000;
+    background-color: #008000;
     color: #fff;
 }
 
 .delete:hover {
-    border: 1px solid red;
-    background-color: red;
+    border: 1px solid #ff0000;
+    background-color: #ff0000;
     color: #fff;
 }
