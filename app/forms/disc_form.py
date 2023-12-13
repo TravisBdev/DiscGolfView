@@ -12,6 +12,10 @@ def check_flight_numbers(form, field):
 def check_char_count(form, field):
     if len(field.data) > 1000 or len(field.data) < 10:
         raise ValidationError('Description must be between 10 and 1000 characters.')
+    
+def number_required(form, field):
+    if field.data is None or isinstance(field.data, int) is False:
+        raise ValidationError('This field is required')
 
 
 class DiscForm(FlaskForm):
@@ -19,9 +23,9 @@ class DiscForm(FlaskForm):
     description = TextAreaField("Description", validators=[DataRequired(), check_char_count])
     category = SelectField('Category', choices=[
         'Driver', 'Fairway', 'Mid Range', 'Putt & Approach'], validators=[DataRequired()])
-    speed = IntegerField('Speed', validators=[DataRequired()])
-    glide = IntegerField('Glide', validators=[DataRequired()])
-    turn = IntegerField('Turn', validators=[DataRequired(), check_flight_numbers])
-    fade = IntegerField('Fade', validators=[DataRequired(), check_flight_numbers])
+    speed = IntegerField('Speed', validators=[number_required, check_flight_numbers])
+    glide = IntegerField('Glide', validators=[number_required, check_flight_numbers])
+    turn = IntegerField('Turn', validators=[number_required, check_flight_numbers])
+    fade = IntegerField('Fade', validators=[number_required, check_flight_numbers])
     photo_url = FileField('Upload Image', validators=[FileRequired(),FileAllowed(list(ALLOWED_EXTENSIONS))])
     submit = SubmitField('Submit')
