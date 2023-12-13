@@ -53,7 +53,7 @@ const deleteDisc = (id) => {
 
 //Thunks
 
-//load all discs
+//Load all discs
 export const getAllDiscs = () => async dispatch => {
     const res = await fetch('/api/discs')
 
