@@ -13,7 +13,7 @@ def get_all_reviews():
     Query for all reviews and returns them in a dictionary
     """
     reviews = Review.query.all()
-    return jsonify({'reviews': [review.to_dict() for review in reviews]})
+    return jsonify([review.to_dict() for review in reviews])
 
 
 @review_routes.route('/disc/<int:id>/')
