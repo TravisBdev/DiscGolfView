@@ -1,0 +1,48 @@
+.modal-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #313131;
+    border-radius: 20px;
+    color: #fff;
+    padding: .8rem;
+}
+
+.delete-confirm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#confirm-header {
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+#you-sure {
+    font-size: 1.2rem;
+}
+
+#yes,
+#no {
+    margin: 0 1rem .7rem 1rem;
+    border: 1px solid transparent;
+    background-color: #bdbdbd;
+    border-radius: 5px;
+    width: 3rem;
+    padding: 5px;
+    font-weight: 550;
+    cursor: pointer;
+}
+
+#yes:hover {
+    border: 1px solid red;
+    background-color: red;
+    color: #fff;
+}
+
+#no:hover {
+    border: 1px solid blue;
+    background-color: blue;
+    color: #fff;
+}

@@ -3,6 +3,8 @@ import { deleteADisc } from "../../store/discs";
 import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 
+import './DeleteDiscModal.css'
+
 
 const DeleteDiscModal = ({ id }) => {
     const dispatch = useDispatch()
@@ -22,10 +24,10 @@ const DeleteDiscModal = ({ id }) => {
     return (
         <div className="modal-container">
             <div className="delete-confirm">
-                <h2>Confirm Delete</h2>
-                <p>Are you sure you want to delete this disc?</p>
+                <h2 id="confirm-header">Confirm Delete</h2>
+                <p id="you-sure">Are you sure you want to delete this disc?</p>
             </div>
-            <div className="btn-box">
+            <div className="delete-disc-btn-box">
                 <button id="yes" onClick={handleDelete}>Yes</button>
                 <button id="no" onClick={cancelDelete}>No</button>
             </div>
