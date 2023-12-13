@@ -17,6 +17,7 @@ const CreateDisc = () => {
     const [fade, setFade] = useState('')
     const [image, setImage] = useState('')
     const [imageLoading, setImageLoading] = useState(false)
+    const [didSubmit, setDidSubmit] = useState(false)
     const [errors, setErrors] = useState({})
 
     useEffect(() => {
@@ -27,13 +28,13 @@ const CreateDisc = () => {
         if(description.length < 10 || description.length > 1000) errors.description = 'Description must be between 10 and 1000 characters.'
         if(!category) errors.category = 'Category is required'
         if(speed === undefined || speed === '' || isNaN(speed)) errors.speed = 'Speed is required.'
-        if(speed < 1 || speed > 14) errors.speed = 'Speed must be between 1 and 14.'
+        if(speed < -8 || speed > 15) errors.speed = 'Speed must be between 1 and 14.'
         if(glide === undefined || glide === '' || isNaN(glide)) errors.glide = 'Glide is required.'
-        if(glide < 1 || glide > 7) errors.glide = 'Glide must be between 1 and 7.'
+        if(glide < -8 || glide > 15) errors.glide = 'Glide must be between 1 and 7.'
         if(turn === undefined || turn === '' || isNaN(turn)) errors.turn = 'Turn is required'
-        if(turn < -5 || turn > 5) errors.turn = 'Turn must be between -5 and 5.'
+        if(turn < -8 || turn > 15) errors.turn = 'Turn must be between -5 and 5.'
         if(fade === undefined || fade === '' || isNaN(fade)) errors.fade = 'Fade is required'
-        if(fade < 0 || fade > 5) errors.fade = 'Fade must be between 0 and 5.'
+        if(fade < -8 || fade > 15) errors.fade = 'Fade must be between 0 and 5.'
         if(!image) errors.photo_url = 'Image is required'
 
         setErrors(errors)
@@ -42,7 +43,7 @@ const CreateDisc = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        // const errorsList = checkErrors()
+        setDidSubmit(true)
 
         const formData = new FormData()
         formData.append('name', name)
@@ -65,19 +66,19 @@ const CreateDisc = () => {
     }
 
     const changeSpeedToNumber = (e) => {
-        const val = parseInt(e.target.value, 10)
+        const val = e.target.value === '' ? '' : parseInt(e.target.value, 10)
         setSpeed(val)
     }
     const changeGlideToNumber = (e) => {
-        const val = parseInt(e.target.value, 10)
+        const val = e.target.value === '' ? '' : parseInt(e.target.value, 10)
         setGlide(val)
     }
     const changeTurnToNumber = (e) => {
-        const val = parseInt(e.target.value, 10)
+        const val = e.target.value === '' ? '' : parseInt(e.target.value, 10)
         setTurn(val)
     }
     const changeFadeToNumber = (e) => {
-        const val = parseInt(e.target.value, 10)
+        const val = e.target.value === '' ? '' : parseInt(e.target.value, 10)
         setFade(val)
     }
 
@@ -88,7 +89,7 @@ const CreateDisc = () => {
                     <div className="name-box form-box">
                         <label>Name</label>
                         <input type="text" value={name} placeholder="Name" onChange={(e) => setName(e.target.value)} />
-                        {errors.name && (<p className="form-errors">{errors.name}</p>)}
+                        {didSubmit && errors.name && (<p className="form-errors">{errors.name}</p>)}
                     </div>
 
                     <div className="category-box form-box">
@@ -100,49 +101,49 @@ const CreateDisc = () => {
                             <option value="Mid Range">Mid Range</option>
                             <option value="Putt & Approach">Putt & Approach</option>
                         </select>
-                        {errors.category && (<p className="form-errors">{errors.category}</p>)}
+                        {didSubmit && errors.category && (<p className="form-errors">{errors.category}</p>)}
                     </div>
 
                     <div className="speed-box form-box">
                         <label>Speed</label>
                         <input type="number" value={speed} placeholder="Speed" onChange={changeSpeedToNumber} />
-                        {errors.speed && (<p className="form-errors">{errors.speed}</p>)}
+                        {didSubmit && errors.speed && (<p className="form-errors">{errors.speed}</p>)}
                     </div>
 
                     <div className="glide-box form-box">
                         <label>Glide</label>
                         <input type="number" value={glide} placeholder="Glide" onChange={changeGlideToNumber} />
-                        {errors.glide && (<p className="form-errors">{errors.glide}</p>)}
+                        {didSubmit && errors.glide && (<p className="form-errors">{errors.glide}</p>)}
                     </div>
 
                     <div className="turn-box form-box">
                         <label>Turn</label>
                         <input type="number" value={turn} placeholder="Turn" onChange={changeTurnToNumber} />
-                        {errors.turn && (<p className="form-errors">{errors.turn}</p>)}
+                        {didSubmit && errors.turn && (<p className="form-errors">{errors.turn}</p>)}
                     </div>
 
                     <div className="fade-box form-box">
                         <label>Fade</label>
                         <input type="number" value={fade} placeholder="Fade" onChange={changeFadeToNumber} />
-                        {errors.fade && (<p className="form-errors">{errors.fade}</p>)}
+                        {didSubmit && errors.fade && (<p className="form-errors">{errors.fade}</p>)}
                     </div>
 
                     <div className="description-box form-box">
                         <label>Description</label>
                         <textarea type="text" value={description} cols={40} rows={10} placeholder="Description must be between 10 and 1000 characters..." onChange={(e) => setDescription(e.target.value)} />
-                        {errors.description && (<p className="form-errors">{errors.description}</p>)}
+                        {didSubmit && errors.description && (<p className="form-errors">{errors.description}</p>)}
                     </div>
 
                     <div className="image-box form-box">
                         <label>Upload Image</label>
                         <input type="file" accept="image/*" onChange={(e) => setImage(e.target.files[0])} />
-                        {errors.image && (<p className="form-errors">{errors.image}</p>)}
+                        {didSubmit && errors.image && (<p className="form-errors">{errors.image}</p>)}
                         {imageLoading && <p>Loading Image...</p>}
                     </div>
 
                     <div className="submit-box form-box">
                         <button 
-                            disabled = {Object.keys(errors).length > 0}
+                            // disabled = {Object.keys(errors).length > 0}
                             type="submit">
                                 Create Disc
                         </button>

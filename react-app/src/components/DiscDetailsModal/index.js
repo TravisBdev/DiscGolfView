@@ -7,6 +7,7 @@ const DiscDetailsModal = ({data}) => {
                 <p className="flight-nums">{data.numbers}</p>
             </div>
             <p className="flight-sum">{data.summary}</p>
+            <div className="clarify">* Flight numbers may vary by manufacturer</div>
         </div>
     )
 }

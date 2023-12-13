@@ -17,3 +17,7 @@ h1, h2 {
 h3, h4 {
     font-family: 'League Spartan', sans-serif;
 }
+
+.form-errors {
+    color: red;
+}

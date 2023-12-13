@@ -19,7 +19,6 @@ const UpdateDisc = () => {
     const [turn, setTurn] = useState('')
     const [fade, setFade] = useState('')
     const [image, setImage] = useState('')
-    // const [imageLoading, setImageLoading] = useState(false)
     const [errors, setErrors] = useState({})
 
     useEffect(() => {
@@ -30,14 +29,13 @@ const UpdateDisc = () => {
         if(description.length < 10 || description.length > 1000) errors.description = 'Description must be between 10 and 1000 characters.'
         if(!category) errors.category = 'Category is required'
         if(speed === undefined || speed === '' || isNaN(speed)) errors.speed = 'Speed is required.'
-        if(speed < 1 || speed > 14) errors.speed = 'Speed must be between 1 and 14.'
+        if(speed < -8 || speed > 15) errors.speed = 'Speed must be between 1 and 14.'
         if(glide === undefined || glide === '' || isNaN(glide)) errors.glide = 'Glide is required.'
-        if(glide < 1 || glide > 7) errors.glide = 'Glide must be between 1 and 7.'
+        if(glide < -8 || glide > 15) errors.glide = 'Glide must be between 1 and 7.'
         if(turn === undefined || turn === '' || isNaN(turn)) errors.turn = 'Turn is required'
-        if(turn < -5 || turn > 5) errors.turn = 'Turn must be between -5 and 5.'
+        if(turn < -8 || turn > 15) errors.turn = 'Turn must be between -5 and 5.'
         if(fade === undefined || fade === '' || isNaN(fade)) errors.fade = 'Fade is required'
-        if(fade < 0 || fade > 5) errors.fade = 'Fade must be between 0 and 5.'
-        // if(!image) errors.photo_url = 'Image is required'
+        if(fade < -8 || fade > 15) errors.fade = 'Fade must be between 0 and 5.'
 
         setErrors(errors)
         return errors
@@ -60,7 +58,6 @@ const UpdateDisc = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        // const errorsList = checkErrors()
 
         const data = new FormData()
         data.append('name', name)
@@ -158,7 +155,6 @@ const UpdateDisc = () => {
                         <label>Upload Image</label>
                         <input type="file" accept="image/*" onChange={(e) => setImage(e.target.files[0])} />
                         {errors.image && (<p className="form-errors">{errors.image}</p>)}
-                        {/* {imageLoading && <p>Loading Image...</p>} */}
                     </div>
 
                     <div className="submit-box form-box">

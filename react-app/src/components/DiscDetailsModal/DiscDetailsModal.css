@@ -37,3 +37,8 @@
     border-radius: 20px;
     border: 1px solid #fff;
 }
+
+.clarify {
+    font-size: .7rem;
+    align-self: center;
+}
