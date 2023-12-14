@@ -1,0 +1,13 @@
+.review-tile {
+    background-color: #313131;
+    color: #fff;
+    max-width: 20%;
+    border-radius: 10px;
+    padding: 1px;
+    border: 1px solid #fff;
+}
+
+.review-user,
+.user-review {
+    margin-left: 1rem;
+}

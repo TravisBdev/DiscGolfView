@@ -7,6 +7,7 @@ import {useModal} from '../../context/Modal'
 import DiscDetailsModal from "../DiscDetailsModal";
 import discFlightData from "./discData";
 import ReviewTile from "../ReviewTile";
+// import ReviewModal from "../ReviewModal";
 
 import './DiscDetails.css'
 
@@ -17,6 +18,8 @@ const DiscDetails = () => {
     const dispatch = useDispatch()
     const disc = useSelector(state => state.discs.allDiscs[id])
     const discReviews = useSelector(state => Object.values(state.reviews.discReviews))
+    const user = useSelector(state => state.session.user)
+
     const {setModalContent} = useModal()
 
     useEffect(() => {
@@ -28,6 +31,8 @@ const DiscDetails = () => {
         const flightStats = discFlightData.find(obj => obj.name.toUpperCase() === stat.toUpperCase())
         setModalContent(<DiscDetailsModal data={flightStats}/>)
     }
+
+    const hasUserReviewed = discReviews.find(rev => rev.user_id === user.id)
 
     return (
         <div className="details-container">
@@ -47,8 +52,14 @@ const DiscDetails = () => {
                         <div className="disc-stat" onClick={() => showStats('TURN')}><p>Turn:</p> <div>{disc.turn}</div></div>
                         <div className="disc-stat" onClick={() => showStats('FADE')}><p>Fade:</p> <div>{disc.fade}</div></div>
                     </section>
-                    <section className="disc-reviews-container">
-                        <h1>Reviews</h1>
+
+                    <section className="user-reviews-divider">
+                        <h2 className="disc-reviews-header">Reviews</h2>
+                        {!hasUserReviewed && <button className="add-review-btn">Add Review</button>}
+                    </section>
+
+                    <section className="disc-reviews-container"> 
+                    {/* you could make the disc pic a background image of the img-container */}
                         {discReviews && discReviews.map(rev => (
                             <ReviewTile key={rev.id} review={rev}/>
                         ))}
