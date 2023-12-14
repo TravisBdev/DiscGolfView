@@ -73,7 +73,7 @@ def create_review_for_disc(id):
         )
         disc.reviews.append(review)
         db.session.commit()
-        return jsonify(review.to_dict()), 201
+        return jsonify(review.to_dict()), 201 
     else:
         return jsonify({'errors': form.errors}), 400
     
