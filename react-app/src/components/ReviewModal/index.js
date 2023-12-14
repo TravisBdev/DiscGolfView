@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react"
 import { createDiscReview } from "../../store/reviews"
+import './ReviewModal.css'
+import { useDispatch } from "react-redux"
 
-// adding a review to the details page
-// need to add the add review button
-// button opens this modal
-// submitting form adds review to page
 
-const ReviewModal = () => {
-
+const ReviewModal = ({id}) => {
+    const dispatch = useDispatch()
     const [review, setReview] = useState('')
     const [rating, setRating] = useState('')
     const [errors, setErrors] = useState({})
@@ -27,8 +25,8 @@ const ReviewModal = () => {
         formData.append('review', review)
         formData.append('rating', rating)
 
-        if(!Object.keys(errors.length)) {
-            dispatchEvent(createDiscReview(formData))
+        if(!Object.keys(errors).length) {
+            dispatch(createDiscReview(id, formData))
         }
     }
 
@@ -38,19 +36,23 @@ const ReviewModal = () => {
         setRating(val)
     }
 
+    
+
     return (
         <div className="create-review-form">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="user-review-form">
                 <div className="user-disc-review">
                     <label>Review</label>
-                    <textarea placeholder="Leave a Review..." onChange={(e) => setReview(e.target.value)}></textarea>
+                    <textarea cols={30} rows={10} placeholder="Leave a Review..." onChange={(e) => setReview(e.target.value)}></textarea>
+                    {errors.review && <p className="form-errors">{errors.review}</p>}
                 </div>
 
                 <div className="user-disc-rating">
                     <label>Rating</label>
                     <input type="number" placeholder="Out of 10" onChange={changeRatingToNumber}/>
+                    {errors.rating && <p className="form-errors">{errors.rating}</p>}
                 </div>
-                <button type="submit">Create Review</button>
+                <button type="submit" className="submit-review-btn">Create Review</button>
             </form>
         </div>
     )

@@ -7,7 +7,7 @@ import {useModal} from '../../context/Modal'
 import DiscDetailsModal from "../DiscDetailsModal";
 import discFlightData from "./discData";
 import ReviewTile from "../ReviewTile";
-// import ReviewModal from "../ReviewModal";
+import ReviewModal from "../ReviewModal";
 
 import './DiscDetails.css'
 
@@ -32,7 +32,12 @@ const DiscDetails = () => {
         setModalContent(<DiscDetailsModal data={flightStats}/>)
     }
 
+    const openReviewModal = () => {
+        setModalContent(<ReviewModal id={id}/>)
+    }
+
     const hasUserReviewed = discReviews.find(rev => rev.user_id === user.id)
+    const noReviews = !discReviews.length
 
     return (
         <div className="details-container">
@@ -55,11 +60,12 @@ const DiscDetails = () => {
 
                     <section className="user-reviews-divider">
                         <h2 className="disc-reviews-header">Reviews</h2>
-                        {!hasUserReviewed && <button className="add-review-btn">Add Review</button>}
+                        {!hasUserReviewed && !noReviews && <button className="add-review-btn" onClick={openReviewModal}>Add Review</button>}
                     </section>
 
                     <section className="disc-reviews-container"> 
                     {/* you could make the disc pic a background image of the img-container */}
+                    {noReviews && <button className="first-review-btn">First Review!</button>}
                         {discReviews && discReviews.map(rev => (
                             <ReviewTile key={rev.id} review={rev}/>
                         ))}

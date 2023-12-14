@@ -76,7 +76,7 @@ export const getAllDiscReviews = (id) => async dispatch => {
 export const createDiscReview = (id, form) => async dispatch => {
     const res = await fetch(`/api/reviews/discs/${id}/new`, {
         method: 'POST',
-        body: form
+        body: JSON.stringify(form)
     })
 
     if(res.ok) {
