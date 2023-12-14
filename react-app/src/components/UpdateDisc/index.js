@@ -38,7 +38,6 @@ const UpdateDisc = () => {
         if(fade < -8 || fade > 15) errors.fade = 'Fade must be between 0 and 5.'
 
         setErrors(errors)
-        return errors
     }, [name, description, category, speed, glide, turn, fade])
 
     useEffect(() => {

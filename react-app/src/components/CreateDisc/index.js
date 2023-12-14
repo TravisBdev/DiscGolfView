@@ -38,7 +38,6 @@ const CreateDisc = () => {
         if(!image) errors.photo_url = 'Image is required'
 
         setErrors(errors)
-        return errors
     }, [name, description, category, speed, glide, turn, fade, image])
 
     const handleSubmit = async (e) => {

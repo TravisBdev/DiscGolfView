@@ -2,7 +2,7 @@ const discFlightData = [
     {
         name: 'SPEED',
         numbers: '1 to 14',
-        summary: 'Speed is the rate at which a disc can travel through the air. Speed 14 Distance Drivers are the fastest, having the PDGA maximum legal wing width. Faster discs cut into the wind with less effort and are best when throwing up wind. Slower discs take more power to throw upwind, but they’re easier to throw more accurately and may actually go farther downwind. High speed discs are not recommended for beginners as they require more power to fly properly.'
+        summary: "Speed is the rate at which a disc can travel through the air. Speed 14 Distance Drivers are the fastest, having the PDGA maximum legal wing width. Faster discs cut into the wind with less effort and are best when throwing up wind. Slower discs take more power to throw upwind, but they're easier to throw more accurately and may actually go farther downwind. High speed discs are not recommended for beginners as they require more power to fly properly."
     },
     {
         name: 'GLIDE',

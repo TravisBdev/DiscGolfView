@@ -60,7 +60,7 @@ export const getAllReviews = () => async dispatch => {
 
 //Load all specific disc reviews
 export const getAllDiscReviews = (id) => async dispatch => {
-    const res = await fetch(`/disc/${id}`)
+    const res = await fetch(`/api/reviews/disc/${id}`)
 
     if(res.ok) {
         const reviews = await res.json()
@@ -74,7 +74,7 @@ export const getAllDiscReviews = (id) => async dispatch => {
 
 //Create a disc review
 export const createDiscReview = (id, form) => async dispatch => {
-    const res = await fetch(`/discs/${id}/new`, {
+    const res = await fetch(`/api/reviews/discs/${id}/new`, {
         method: 'POST',
         body: form
     })
@@ -85,13 +85,13 @@ export const createDiscReview = (id, form) => async dispatch => {
         return review
     }else {
         const errors = await res.json()
-        return errors
+        return errors.message
     }
 }
 
 //Update a disc review
 export const updateDiscReview = (id, data) => async dispatch => {
-    const res = await fetch(`/${id}`, {
+    const res = await fetch(`/api/reviews/${id}`, {
         method: 'PUT',
         body: data
     })
@@ -108,7 +108,7 @@ export const updateDiscReview = (id, data) => async dispatch => {
 
 //Delete a disc review
 export const deleteAReview = (id) => async dispatch => {
-    const res = await fetch(`/${id}`, {
+    const res = await fetch(`/api/reviews/${id}`, {
         method: 'DELETE'
     })
 

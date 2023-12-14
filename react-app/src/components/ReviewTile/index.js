@@ -1,4 +1,3 @@
-
 const ReviewTile = ({review}) => {
     return (
         <div className="review-tile">
