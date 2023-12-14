@@ -36,6 +36,10 @@ const DiscDetails = () => {
         setModalContent(<ReviewModal id={id}/>)
     }
 
+    const sorted = discReviews.slice().sort((a, b) => {
+        return new Date(b.createdAt) - new Date(a.createdAt);
+      });
+
     const hasUserReviewed = discReviews.find(rev => rev.user_id === user.id)
     const noReviews = !discReviews.length
 
@@ -66,7 +70,7 @@ const DiscDetails = () => {
                     <section className="disc-reviews-container"> 
                     {/* you could make the disc pic a background image of the img-container */}
                     {noReviews && <button className="first-review-btn">First Review!</button>}
-                        {discReviews && discReviews.map(rev => (
+                        {discReviews && sorted.map(rev => (
                             <ReviewTile key={rev.id} review={rev}/>
                         ))}
                     </section>

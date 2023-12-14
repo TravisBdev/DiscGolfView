@@ -73,15 +73,17 @@ export const getAllDiscReviews = (id) => async dispatch => {
 }
 
 //Create a disc review
-export const createDiscReview = (id, form) => async dispatch => {
+export const createDiscReview = (id, review) => async dispatch => {
     const res = await fetch(`/api/reviews/discs/${id}/new`, {
         method: 'POST',
-        body: JSON.stringify(form)
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(review)
     })
 
     if(res.ok) {
-        const review = await res.json()
-        dispatch(createReview(review))
+        const newReview = await res.json()
+        dispatch(createReview(newReview))
+        dispatch(getAllDiscReviews(id))
         return review
     }else {
         const errors = await res.json()

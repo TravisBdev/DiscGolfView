@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react"
 import { createDiscReview } from "../../store/reviews"
-import './ReviewModal.css'
 import { useDispatch } from "react-redux"
+import { useModal } from "../../context/Modal"
+import './ReviewModal.css'
 
 
 const ReviewModal = ({id}) => {
     const dispatch = useDispatch()
+    const {closeModal} = useModal()
     const [review, setReview] = useState('')
     const [rating, setRating] = useState('')
     const [errors, setErrors] = useState({})
@@ -21,13 +23,15 @@ const ReviewModal = ({id}) => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        const formData = new FormData()
-        formData.append('review', review)
-        formData.append('rating', rating)
+        const newRev = {
+            review,
+            rating
+        }
 
         if(!Object.keys(errors).length) {
-            dispatch(createDiscReview(id, formData))
+            dispatch(createDiscReview(id, newRev))
         }
+        closeModal()
     }
 
 

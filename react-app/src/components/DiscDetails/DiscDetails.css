@@ -118,5 +118,10 @@
     border: 1px solid #f801f8;
 }
 
+.disc-reviews-container {
+    display: grid;
+    gap: 1rem;
+}
+
 
 
