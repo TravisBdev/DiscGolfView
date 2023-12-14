@@ -16,7 +16,7 @@ def get_all_reviews():
     return jsonify([review.to_dict() for review in reviews])
 
 
-@review_routes.route('/disc/<int:id>/')
+@review_routes.route('/disc/<int:id>')
 @login_required
 def get_disc_reviews(id):
     """
