@@ -35,7 +35,7 @@ const DiscDetails = () => {
     const openReviewModal = () => {
         setModalContent(<ReviewModal id={id}/>)
     }
-
+    
     const sorted = discReviews.slice().sort((a, b) => {
         return new Date(b.createdAt) - new Date(a.createdAt);
       });
