@@ -11,6 +11,6 @@ def check_limit(form, field):
         raise ValidationError('Review must be less than 1100 characters')
 
 class ReviewForm(FlaskForm):
-    review = TextAreaField('Review', validators=[DataRequired()])
-    rating = IntegerField('Rating', validators=[DataRequired()])
+    review = TextAreaField('Review', validators=[DataRequired(), check_limit])
+    rating = IntegerField('Rating')
     submit = SubmitField('Submit')
