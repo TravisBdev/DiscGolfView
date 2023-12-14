@@ -11,7 +11,6 @@ const DiscIndex = () => {
     const discs = useSelector(state => Object.values(state.discs.allDiscs))
     
     useEffect(() => {
-        console.log('dispatching discs')
         dispatch(getAllDiscs())
     }, [dispatch])
     
