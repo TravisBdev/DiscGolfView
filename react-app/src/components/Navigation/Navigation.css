@@ -1,7 +1,38 @@
 .profile-dropdown {
   position: absolute;
+  right: 1rem;
+  list-style-type: none;
+  /* top: 4rem; */
 }
 
 .hidden {
   display: none;
+}
+
+.nav-bar {
+  border-bottom: 1px solid black;
+  /* margin-bottom: 1rem; */
+  background-color: rgb(49, 49, 49);
+  padding: .1rem;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: flex-end;
+  list-style-type: none;
+  margin-right: 1rem;
+}
+
+.nav-item {
+  margin: 0 .3rem 0 .3rem;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav-item a:visited{
+  text-decoration: none;
+  color: #fff;
 }
