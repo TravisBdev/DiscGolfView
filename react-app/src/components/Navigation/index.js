@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import logo from '../assets/DGLogo.png'
 import './Navigation.css';
 
 function Navigation({ isLoaded }){
@@ -9,26 +10,26 @@ function Navigation({ isLoaded }){
 
 	return (
 		<nav className='nav-bar'>
-			<ul className='nav-list'>
-				<li className='nav-item'>
-					<NavLink exact to="/">Home</NavLink>
-				</li>
+			
+				<div className='nav-item'>
+					<NavLink exact to="/"><img className="dgv-logo" src={logo} alt="" /></NavLink>
+				</div>
 				{sessionUser && 
 					<>
-					<li className='nav-item'>
+					<div className='nav-item'>
 						<NavLink exact to="/current">Your Discs</NavLink>
-					</li>
-					<li className='nav-item'>
+					</div>
+					<div className='nav-item'>
 						<NavLink exact to="/new">Add Disc</NavLink>
-					</li>
+					</div>
 					</>
 				}
 			{isLoaded && (
-				<li className='nav-item'>
+				<div className='nav-item'>
 					<ProfileButton user={sessionUser} />
-				</li>
+				</div>
 			)}
-			</ul>
+			
 		</nav>
 	);
 }
