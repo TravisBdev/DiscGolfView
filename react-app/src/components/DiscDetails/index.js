@@ -43,6 +43,8 @@ const DiscDetails = () => {
     const hasUserReviewed = discReviews.find(rev => rev.user_id === user.id)
     const noReviews = !discReviews.length
 
+
+
     return (
         <div className="details-container">
             {disc && (
@@ -68,10 +70,9 @@ const DiscDetails = () => {
                     </section>
 
                     <section className="disc-reviews-container"> 
-                    {/* you could make the disc pic a background image of the img-container */}
-                    {noReviews && <button className="first-review-btn">First Review!</button>}
+                    {noReviews && <button className="first-review-btn" onClick={openReviewModal}>First Review!</button>}
                         {discReviews && sorted.map(rev => (
-                            <ReviewTile key={rev.id} review={rev}/>
+                            <ReviewTile key={rev.id} review={rev} user={user}/>
                         ))}
                     </section>
                 </>
