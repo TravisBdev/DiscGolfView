@@ -11,6 +11,16 @@
     padding: 20px;
 }
 
+.user-controls-main-btn {
+    background-color: #bdbdbd;
+    margin-right: 1rem;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
 #user-actions-btn {
     background-color: #bdbdbd;
     border: none;
@@ -18,4 +28,8 @@
     padding: 5px;
     font-weight: 550;
     cursor: pointer;
+}
+
+.user-controls-main-btn:hover {
+    border: 1px solid #fff;
 }
