@@ -16,10 +16,10 @@ function Navigation({ isLoaded }){
 				</div>
 				{sessionUser && 
 					<>
-					<div className='nav-item'>
+					<div className='nav-item user-option'>
 						<NavLink exact to="/current">Your Discs</NavLink>
 					</div>
-					<div className='nav-item'>
+					<div className='nav-item user-option'>
 						<NavLink exact to="/new">Add Disc</NavLink>
 					</div>
 					</>

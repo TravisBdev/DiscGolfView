@@ -125,6 +125,7 @@
 .disc-reviews-container {
     display: grid;
     gap: 1rem;
+    /* max-width: 200px; */
 }
 
 .first-review-btn {

@@ -1,7 +1,7 @@
 .review-tile {
     background-color: #313131;
     color: #fff;
-    max-width: 20%;
+    max-width: 200px;
     border-radius: 10px;
     padding: 3px;
     border: 1px solid #fff;
@@ -10,6 +10,10 @@
 .review-user,
 .user-review {
     margin-left: 1rem;
+    margin-left: 1rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    /* overflow: hidden; */
 }
 
 .delete-review-btn {

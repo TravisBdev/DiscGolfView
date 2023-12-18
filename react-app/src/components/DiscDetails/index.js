@@ -65,12 +65,12 @@ const DiscDetails = () => {
                     </section>
 
                     <section className="user-reviews-divider">
-                        <h2 className="disc-reviews-header">Reviews</h2>
+                        {!noReviews && user && <h2 className="disc-reviews-header">Reviews</h2>}
                         {!hasUserReviewed && !noReviews && <button className="add-review-btn" onClick={openReviewModal}>Add Review</button>}
                     </section>
 
                     <section className="disc-reviews-container"> 
-                    {noReviews && <button className="first-review-btn" onClick={openReviewModal}>First Review!</button>}
+                    {noReviews && user && <button className="first-review-btn" onClick={openReviewModal}>First Review!</button>}
                         {discReviews && sorted.map(rev => (
                             <ReviewTile key={rev.id} review={rev} user={user}/>
                         ))}

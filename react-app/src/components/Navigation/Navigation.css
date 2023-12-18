@@ -48,3 +48,12 @@
   text-decoration: none;
   color: #fff;
 }
+
+.user-option {
+  border: 1px solid transparent;
+  padding: 10px
+}
+
+.user-option:hover {
+  border: 1px solid #fff;
+}

@@ -6,6 +6,8 @@ import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import { useHistory } from "react-router-dom";
 
+import './ProfileButton.css'
+
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const history = useHistory()
@@ -51,7 +53,7 @@ function ProfileButton({ user }) {
             <li>{user.username}</li>
             <li>{user.email}</li>
             <li>
-              <button onClick={handleLogout}>Log Out</button>
+              <button id="user-actions-btn" onClick={handleLogout}>Log Out</button>
             </li>
           </>
         ) : (
